@@ -1,0 +1,26 @@
+.compatibility-dialog { width:min(1020px,92vw); max-width:92vw; max-height:88vh; padding:28px; color:var(--ink); }
+.compatibility-dialog header { display:flex; justify-content:space-between; align-items:center; gap:20px; position:sticky; top:-28px; padding:8px 0; background:white; z-index:2; }
+.compatibility-dialog h2 { margin:4px 0; font-size:23px; }
+.compatibility-dialog .compatibility-summary { color:#526b43; font-size:15px; margin:16px 0 10px; }
+.compatibility-dialog .compatibility-note { color:#77806f; line-height:1.8; max-width:none; margin-bottom:22px; }
+.compatibility-areas { border:1px solid #e6eadf; border-radius:7px; margin:15px 0 25px; }
+.compatibility-areas details { padding:11px 14px; border-bottom:1px solid #e9ece4; }
+.compatibility-areas details:last-child { border:0; }
+.compatibility-areas summary { display:list-item; cursor:pointer; color:#53634b; }
+.compatibility-areas summary span { float:right; color:#939a8a; font-size:11px; }
+.compatibility-areas p { margin:12px 0 3px; color:#77806f; font-size:12px; line-height:1.8; max-width:none; }
+.compatibility-search { display:flex; gap:12px; }
+.compatibility-search input { flex:1; min-width:0; }
+.compatibility-search input,.compatibility-search select { border:1px solid #dce2d5; border-radius:5px; padding:10px; color:#57654f; background:#fbfcf9; }
+.compatibility-count { color:#8c9682; font-size:11px; }
+.compatibility-dialog table { border-collapse:collapse; width:100%; table-layout:fixed; }
+.compatibility-dialog th,.compatibility-dialog td { text-align:left; vertical-align:top; padding:11px 8px; border-bottom:1px solid #e8ede1; font-size:11px; }
+.compatibility-dialog th { color:#8a957e; font-weight:500; background:#f8faf5; }
+.compatibility-dialog th:nth-child(1) { width:22%; }
+.compatibility-dialog th:nth-child(2) { width:61%; }
+.compatibility-dialog td small { display:block; color:#a2a999; margin-top:5px; overflow-wrap:anywhere; }
+.compatibility-dialog td code { font:11px/1.75 var(--mono); overflow-wrap:anywhere; color:#4b5940; }
+.compatibility-pass { color:#638943; }
+.compatibility-gap { color:#bd703e; }
+.compatibility-dialog td details { margin-top:7px; color:#8c8f87; }
+.compatibility-dialog td pre { white-space:pre-wrap; overflow-wrap:anywhere; font:10px/1.6 var(--mono); }

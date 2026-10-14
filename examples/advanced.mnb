@@ -1,0 +1,94 @@
+{
+  "format": "mathematics-notebook",
+  "version": 1,
+  "id": "dfb25461-8598-47ca-be5a-8bb1030c39bf",
+  "title": "进阶探索 · 0.2",
+  "cells": [
+    {
+      "id": "93e49cf3-5df8-44a8-8000-5e5fd109cd12",
+      "type": "text",
+      "source": "先运行一个单元。三维图形可拖动旋转、滚轮缩放；动态控件会用当前参数重新计算。详细支持范围见帮助中的“功能覆盖与差距”。"
+    },
+    {
+      "id": "b2211970-7f38-4583-8c22-255256a40cb4",
+      "type": "heading",
+      "source": "代数数域分解"
+    },
+    {
+      "id": "d96c6f65-a6bb-4c09-bae0-4fd29617d0bc",
+      "type": "input",
+      "source": "Factor[x^4 + 1, Extension -> Sqrt[2]]"
+    },
+    {
+      "id": "4c8583a6-18f0-4010-9c80-630627c893d5",
+      "type": "heading",
+      "source": "线性代数"
+    },
+    {
+      "id": "c5ff3a78-daed-4e1c-b6c4-919ffb20befc",
+      "type": "input",
+      "source": "{Inverse[{{1,2},{3,4}}], Eigenvalues[{{2,1},{1,2}}]}"
+    },
+    {
+      "id": "61e02f5b-83ad-4475-80a5-8d8ce85625de",
+      "type": "heading",
+      "source": "解析微分方程"
+    },
+    {
+      "id": "a4e53d1a-2d16-46c8-a649-3d55b8e46778",
+      "type": "input",
+      "source": "DSolve[y'[x] == y[x], y[x], x]"
+    },
+    {
+      "id": "3c009227-b76d-4454-9e3e-086381ac0816",
+      "type": "heading",
+      "source": "统计"
+    },
+    {
+      "id": "64c97919-0109-4ce9-8e81-d65b39a3dddc",
+      "type": "input",
+      "source": "{Mean[{1,2,3,4,5}], StandardDeviation[{1,2,3,4,5}]}"
+    },
+    {
+      "id": "ec1ff358-9327-4c0c-ae55-d6af9ddfa120",
+      "type": "heading",
+      "source": "三维曲面"
+    },
+    {
+      "id": "e685a9e9-4f3f-4363-8a13-df4d8bcfd35a",
+      "type": "input",
+      "source": "Plot3D[Sin[x] Cos[y], {x,-3,3}, {y,-3,3}]"
+    },
+    {
+      "id": "f8134459-5b14-4ee6-b19b-c059e0c59c99",
+      "type": "heading",
+      "source": "基本三维几何"
+    },
+    {
+      "id": "8700bfb4-7065-4e8a-97ed-c2a97bafb5c0",
+      "type": "input",
+      "source": "Graphics3D[{Red, Sphere[{0,0,0}], Blue, Cuboid[{1,1,1},{2,2,2}]}]"
+    },
+    {
+      "id": "763fe322-9621-4ff4-a949-01803cbf8de7",
+      "type": "heading",
+      "source": "动态二维绘图"
+    },
+    {
+      "id": "7ce44a63-fe77-4898-ace1-bc5d513b5eac",
+      "type": "input",
+      "source": "Manipulate[Plot[Sin[a x], {x,-Pi,Pi}], {{a,1,\"频率\"},0.5,3,0.1}]"
+    },
+    {
+      "id": "d1c3e8d8-8a37-4657-9f55-d6bef01a47ab",
+      "type": "heading",
+      "source": "动态三维绘图"
+    },
+    {
+      "id": "57ffc50a-31b0-4a4e-acd3-4416feccd7a4",
+      "type": "input",
+      "source": "Manipulate[Plot3D[Sin[a x y], {x,-2,2}, {y,-2,2}, PlotPoints->12, MaxRecursion->0], {{a,1,\"频率\"},0.5,3,0.1}]"
+    }
+  ],
+  "updatedAt": "2026-10-10T05:19:39.108Z"
+}

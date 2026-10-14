@@ -1,0 +1,16 @@
+{
+  "format": "mathematics-notebook",
+  "version": 1,
+  "id": "mathematics-demo",
+  "title": "数学入门",
+  "cells": [
+    { "id": "demo-heading", "type": "heading", "source": "从好奇开始，探索数学" },
+    { "id": "demo-intro", "type": "text", "source": "写下表达式，按 Shift + Enter 运行。同一笔记本中的变量持续可用；这些例子不会自动执行。" },
+    { "id": "demo-factor", "type": "input", "source": "Factor[x^4 - 1]" },
+    { "id": "demo-solve", "type": "input", "source": "Solve[x^2 - 5 x + 6 == 0, x]" },
+    { "id": "demo-derivative", "type": "input", "source": "D[Sin[x^2], x]" },
+    { "id": "demo-integral", "type": "input", "source": "Integrate[Exp[-x^2], {x, -Infinity, Infinity}]" },
+    { "id": "demo-plot", "type": "input", "source": "Plot[Sin[x], {x, -2 Pi, 2 Pi}]" }
+  ],
+  "updatedAt": "2026-10-10T00:00:00.000Z"
+}

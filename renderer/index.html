@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>Mathematics — 数学笔记本</title>
+  <link rel="stylesheet" href="../node_modules/katex/dist/katex.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="compatibility.css">
+  <script defer src="../node_modules/katex/dist/katex.min.js"></script>
+  <script defer src="../node_modules/dompurify/dist/purify.min.js"></script>
+  <script defer src="graphics3d.js"></script>
+  <script defer src="dynamic-coordinator.js"></script>
+  <script defer src="compatibility.js"></script>
+  <script defer src="math-display.js"></script>
+  <script defer src="function-index.js"></script>
+  <script defer src="palette.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="navigation" aria-label="笔记本导航">
+      <div class="brand"><span class="brand-mark" aria-hidden="true">m</span><div><strong>Mathematics</strong><span>数学，也可以很直观</span></div></div>
+      <button class="new-notebook" data-action="new"><span aria-hidden="true">＋</span> 新建笔记本 <kbd>⌘ N</kbd></button>
+      <div class="nav-label">工作空间</div>
+      <button class="notebook-link selected" data-action="top"><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="4" y="3" width="12" height="14" rx="2"/><path d="M7 3v14m3-9h3m-3 3h3"/></svg><span id="sidebar-title">数学入门</span><span class="nav-dot"></span></button>
+      <div class="nav-label example-label">从一个问题开始</div>
+      <div id="example-navigation" class="example-navigation"></div>
+      <details class="advanced-examples"><summary>进阶示例 <span>部分支持</span></summary><div id="advanced-example-navigation" class="example-navigation"></div></details>
+      <div class="navigation-bottom"><div class="engine-label"><span class="engine-dot" id="engine-dot"></span><span id="engine-label">正在启动内核</span></div><p>开源 Mathics 内核<br>独立 Notebook 工作空间</p><button class="quiet-button" data-action="help">使用指南 <span aria-hidden="true">↗</span></button></div>
+    </aside>
+    <div class="workspace">
+      <header class="toolbar">
+        <div class="breadcrumb">工作空间 <span>/</span> <strong id="toolbar-title">数学入门</strong><span id="save-indicator" class="save-indicator">草稿</span></div>
+        <div class="toolbar-actions">
+          <button class="icon-button" data-action="open" title="打开笔记本（⌘ O）" aria-label="打开笔记本"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 6V4h5l2 2h7v3M3 6v10h13l2-7H7l-2 7"/></svg></button>
+          <button class="toolbar-button" data-action="save" title="保存（⌘ S）"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 3h11l2 2v12H3V3h1Zm2 0v5h8V3m-8 14v-6h8v6"/></svg>保存</button>
+          <span class="toolbar-divider"></span>
+          <button class="toolbar-button" id="stop-button" data-action="cancel" disabled><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="5" y="5" width="10" height="10" rx="1"/></svg>停止</button>
+          <button class="primary-button" id="run-all-button" data-action="run-all"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="m6 4 10 6-10 6V4Z"/></svg>运行全部</button>
+          <button class="icon-button" id="help-toggle" data-action="toggle-help" title="显示或收起帮助" aria-label="显示或收起帮助" aria-expanded="true"><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="3" y="3" width="14" height="14" rx="2"/><path d="M12 3v14"/></svg></button>
+        </div>
+      </header>
+      <div class="workspace-body">
+        <main class="notebook-scroll" id="notebook-scroll">
+          <div class="notebook-paper">
+            <div class="document-heading"><div class="eyebrow"><span class="small-square"></span> NOTEBOOK</div><input id="document-title" class="document-title" aria-label="笔记本名称" value="数学入门" maxlength="180"><div class="document-subtitle"><span id="cell-count">6 个单元</span><span class="subtle-dot">·</span><span id="document-caption">想法、公式与计算，在同一页展开。</span></div></div>
+            <div class="session-notice" id="session-notice" hidden><span aria-hidden="true">↻</span><span id="session-notice-text"></span><button aria-label="关闭提示" data-action="dismiss-notice">×</button></div>
+            <div id="cells" class="cells" aria-label="笔记本单元"></div>
+            <div class="add-cell-bar"><span>添加单元</span><button data-action="add-input">＋ 计算</button><button data-action="add-text">文字</button><button data-action="add-heading">标题</button></div>
+            <div class="notebook-footnote"><span>每个问题，都是一个新的起点。</span><span><kbd>⇧</kbd> + <kbd>↵</kbd> 运行当前单元</span></div>
+          </div>
+        </main>
+        <aside class="help-panel" id="help-panel" aria-label="使用指南">
+          <div class="help-heading"><div><span class="eyebrow">QUICK GUIDE</span><h2>把想法写成公式</h2></div><button class="icon-button" data-action="toggle-help" aria-label="收起使用指南">×</button></div>
+          <p class="help-intro">支持基础 Wolfram 语言语法。先写一个表达式，再运行，结果会留在这一页。</p>
+          <div class="shortcut-card"><span class="shortcut-keys"><kbd>shift</kbd><span>＋</span><kbd>enter</kbd></span><strong>运行，并继续下一个单元</strong><p>同一笔记本中的变量可以持续使用。</p></div>
+          <div class="shortcut-card"><span class="shortcut-keys"><kbd>⌘</kbd><span>＋</span><kbd>K</kbd></span><strong>查函数，回车插入</strong><p>搜索内核支持的全部函数，查看签名与示例。</p></div>
+          <h3>常用计算</h3>
+          <div class="function-list">
+            <button data-insert="Factor[x^4 - 1]"><span class="function-symbol">ƒ</span><span><strong>Factor</strong><small>因式分解</small></span><span class="insert-arrow">＋</span></button>
+            <button data-insert="Solve[x^2 - 5 x + 6 == 0, x]"><span class="function-symbol">=</span><span><strong>Solve</strong><small>求解方程</small></span><span class="insert-arrow">＋</span></button>
+            <button data-insert="D[Sin[x^2], x]"><span class="function-symbol">∂</span><span><strong>D</strong><small>符号求导</small></span><span class="insert-arrow">＋</span></button>
+            <button data-insert="Integrate[x^2, {x, 0, 1}]"><span class="function-symbol">∫</span><span><strong>Integrate</strong><small>符号与定积分</small></span><span class="insert-arrow">＋</span></button>
+            <button data-insert="Plot[Sin[x], {x, -2 Pi, 2 Pi}]"><span class="function-symbol">∿</span><span><strong>Plot</strong><small>函数可视化</small></span><span class="insert-arrow">＋</span></button>
+            <button data-insert="Plot3D[Sin[x y], {x, -3, 3}, {y, -3, 3}]"><span class="function-symbol">◇</span><span><strong>Plot3D</strong><small>三维曲面 · 拖动旋转</small></span><span class="insert-arrow">＋</span></button>
+            <button data-insert="Manipulate[Plot[Sin[a x], {x, -Pi, Pi}], {{a, 1, &quot;频率&quot;}, 0.5, 3, 0.1}]"><span class="function-symbol">↔</span><span><strong>Manipulate</strong><small>数值滑条子集</small></span><span class="insert-arrow">＋</span></button>
+          </div>
+          <div class="syntax-note"><h3>一点语法</h3><p><code>f[x]</code> 用方括号调用函数<br><code>{a, b}</code> 表示列表<br><code>value = 2</code> 保存变量<br><code>;</code> 抑制该次结果显示</p></div>
+          <div class="help-section"><h3>你的笔记，随时带走</h3><p><code>.mnb</code> 是本应用的独立文档格式，保存单元和历史结果；<code>.wl</code> 导出计算源码。<code>.nb</code> 支持基础单元导入/导出，复杂排版和动态内容部分兼容。保存的结果不会保存内核运行状态。</p><button class="text-button" data-action="export">导出 Wolfram 语言源码 <span>↗</span></button><button class="text-button" data-action="export-nb">导出基础 .nb 笔记本 <span>↗</span></button></div>
+          <div class="help-section"><h3>当前功能范围</h3><p>可尝试符号、矩阵、微分方程、统计与三维图形等计算。实际支持以开源内核结果和功能报告为准，不能视为全部 Mathematica 功能等价。</p><button class="text-button" data-action="compatibility">功能覆盖与差距 <span>↗</span></button></div>
+          <div class="help-section kernel-tools"><h3>内核会话</h3><p>基础计算由开源 Mathics 提供，与 Mathematica 的完整功能存在差异。停止或超时会重置内核并清空变量，笔记内容保留。</p><button class="text-button" data-action="reset">重置当前笔记本内核 <span>↻</span></button></div>
+        </aside>
+      </div>
+      <footer class="status-bar"><div><span id="status-dot" class="status-dot"></span><span id="kernel-status">Mathics 正在启动…</span><span class="status-separator">|</span><span id="activity-status">准备好一个问题，再按 Shift + Enter</span></div><div><span id="file-status">本地草稿</span><span class="status-separator">|</span><span id="last-duration">—</span></div></footer>
+    </div>
+  </div>
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+  <dialog id="confirm-dialog"><div class="dialog-icon" aria-hidden="true">↗</div><h2>先保存当前笔记本？</h2><p>当前内容还没有保存到文件。草稿会自动保留，保存文件后可以随时再次打开。</p><div class="dialog-actions"><button class="toolbar-button" data-confirm="cancel">取消</button><button class="toolbar-button" data-confirm="discard">继续</button><button class="primary-button" data-confirm="save">保存并继续</button></div></dialog>
+</body>
+</html>

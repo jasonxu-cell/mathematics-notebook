@@ -1,0 +1,21 @@
+{
+  "name": "mathematics-notebook",
+  "version": "0.5.3",
+  "private": true,
+  "description": "Independent Wolfram Language compatible notebook powered by Mathics3",
+  "main": "main.cjs",
+  "license": "GPL-3.0-or-later",
+  "scripts": {
+    "start": "electron .",
+    "test": "node --test tests/*.test.cjs",
+    "package": "node scripts/package.cjs"
+  },
+  "dependencies": {
+    "dompurify": "3.4.16",
+    "katex": "0.19.0"
+  },
+  "devDependencies": {
+    "@electron/packager": "20.3.0",
+    "electron": "44.7.0"
+  }
+}

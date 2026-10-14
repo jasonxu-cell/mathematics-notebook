@@ -1,0 +1,18 @@
+(* Independently authored interoperability fixture; no vendor notebook copied. *)
+Notebook[{
+  Cell["基础 .nb 互操作示例", "Title"],
+  Cell[TextData[{"支持文本、数学输入与保存的输出。", "\n导入不会运行初始化单元。"}], "Text"],
+  Cell[CellGroupData[{
+    Cell["代数与二维排版", "Section"],
+    Cell[BoxData[RowBox[{"Factor", "[", RowBox[{SuperscriptBox["x", "2"], "-", "1"}], "]"}]], "Input"],
+    Cell[BoxData[RowBox[{RowBox[{"(", "x", "-", "1", ")"}], " ", RowBox[{"(", "x", "+", "1", ")"}]}]], "Output"],
+    Cell[BoxData[FractionBox[SuperscriptBox["x", "3"], "3"]], "Input"],
+    Cell[BoxData[SqrtBox["2"]], "Input"],
+    Cell[BoxData[SubscriptBox["a", "i"]], "Input"],
+    Cell[BoxData[GridBox[{{"1", "2"}, {"3", "4"}}]], "Input"]
+  }, Open]],
+  (* A nested comment: (* Cell["fake", "Input"] *) must not become a cell. *)
+  Cell[BoxData[RowBox[{"Plot", "[", RowBox[{RowBox[{"Sin", "[", "x", "]"}], ",", RowBox[{"{", RowBox[{"x", ",", "0", ",", RowBox[{"2", "Pi"}]}], "}"}]}], "]"}]], "Code", InitializationCell -> True],
+  Cell[BoxData[TemplateBox[{"preserve this source"}, "UnsupportedExample"]], "Input"],
+  Cell["中文、quote: \"hello\"、反斜杠: \\、字符串中的 (* 不是注释 *)。", "Text"]
+}, WindowTitle -> "Interoperability", WindowSize -> {900, 700}, StyleDefinitions -> "Default.nb"]
